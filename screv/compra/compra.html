@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Online</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Arquivo CSS para estilização -->
+    <style>
+        body {
+            background-color: #897054;
+            font-family: Arial, sans-serif;
+        }
+        .product-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .header {
+            width: 100%;
+            background: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .icons-bar {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .icons-bar img {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .search-bar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .search-bar input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        .content {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .image-gallery img {
+            width: 60px;
+            cursor: pointer;
+        }
+        .main-image img {
+            width: 300px;
+        }
+        .product-info {
+            padding-left: 20px;
+        }
+        .buy-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .discount {
+            color: green;
+            font-weight: bold;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .modal button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="product-container">
+            <div class="header">
+                <div class="icons-bar">
+                    <img src="cart.png" alt="Carrinho">
+                    <img src="box.png" alt="Pedidos">
+                    <img src="mail.png" alt="Mensagens">
+                    <img src="settings.png" alt="Configurações">
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar produtos...">
+                </div>
+            </div>
+            <div class="content">
+                <div class="image-gallery">
+                    <img src="img1.jpg" alt="Imagem pequena 1">
+                    <img src="img2.jpg" alt="Imagem pequena 2">
+                    <img src="img3.jpg" alt="Imagem pequena 3">
+                </div>
+                <div class="main-image">
+                    <img src="tv.jpg" alt="Smart TV 32">
+                </div>
+                <div class="product-info">
+                    <h2>Smart TV 32'' Philco Ptv32k34rkgb Roku TV Led Wi-Fi HDMI USB Dolby Audio</h2>
+                    <p><strong>R$926,10</strong> <span class="discount">47% OFF no Pix</span></p>
+                    <p>ou R$1.029 em 10x <span class="discount">R$102,90 sem juros</span></p>
+                    <button class="buy-button" onclick="openPaymentModal()">Pague Agora</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <div class="modal" id="payment-modal">
+        <h3>Escolha a forma de pagamento</h3>
+        <select id="payment-method">
+            <option value="">Selecione</option>
+            <option value="pix">Pix</option>
+            <option value="debito">Débito</option>
+            <option value="cartao">Cartão</option>
+        </select>
+        <button onclick="confirmPurchase()">Comprar</button>
+    </div>
+    
+    <script>
+        function openPaymentModal() {
+            document.getElementById('payment-modal').style.display = 'block';
+        }
+        
+        function confirmPurchase() {
+            const paymentMethod = document.getElementById('payment-method').value;
+            if (!paymentMethod) {
+                alert('Por favor, escolha uma forma de pagamento.');
+                return;
+            }
+            alert('Compra com sucesso!');
+            document.getElementById('payment-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
