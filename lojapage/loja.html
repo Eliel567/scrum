@@ -1,0 +1,173 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            background-color: #897054;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: black;
+        }
+        header {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: center;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+        }
+        .center-menu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .icon-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .icon-menu img {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .search-bar {
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: black;
+        }
+        .search-bar input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
+            color: black;
+        }
+        .search-bar img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        main {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 120px;
+            position: relative;
+            color: black;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 380px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            color: black;
+        }
+        .middle-box {
+            background: #757575;
+            width: 900px;
+            height: 520px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .buy-button, .cart-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            width: 80%;
+        }
+        .buy-button:hover, .cart-button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="center-menu">
+                <li><a href="#">Loja</a></li>
+            </ul>
+            <div class="icon-menu">
+                <img src="imagens/Shopping_cart.png" alt="Carrinho" onclick="irParaCompra()">
+                <img src="imagens/Package.png" alt="Pacote">
+                <img src="imagens/mensagem.png" alt="E-mail">
+                <div style="width: 10px;"></div>
+                <img src="imagens/User.png" alt="Usuário">
+                <img src="imagens/ferramenta.png" alt="Configurações">
+            </div>
+        </nav>
+        <div class="search-bar">
+            <img src="imagens/Search.png" alt="Ícone de busca">
+            <input type="text" placeholder="Buscar...">
+        </div>
+    </header>
+    
+    <main>
+        <div class="middle-box"></div>
+        <section class="box">
+            <p> Sugestões para compra!! </p>
+        </section>
+        <section class="box">
+            <img src="imagens/tv_preta_1.png" alt="TV Preta" width="250">
+            <p>Adicione este produto ao seu carrinho e compre agora!</p>
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" min="1" value="1">
+            <button class="cart-button" onclick="adicionarAoCarrinho('TV Preta', 926.10, document.getElementById('quantidade').value)">Adicionar ao Carrinho</button>
+            <button class="buy-button" onclick="irParaCompra()">Comprar</button>
+        </section>
+    </main>
+</body>
+</html>
