@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Página de Cadastro</title>
+    <title>Página Cadastro</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
             background-color: #897054;
@@ -12,6 +14,17 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
+        }
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagens/homem_negro.png'); /* Substitua pelo caminho correto */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3; /* Deixa a imagem mais discreta */
+            z-index: 0;
         }
         .container {
             background: white;
@@ -22,6 +35,7 @@
             width: 500px;
             min-height: 600px;
             position: relative;
+            z-index: 1; /* Mantém a box acima da imagem */
         }
         .header {
             display: flex;
@@ -57,39 +71,44 @@
     </style>
 </head>
 <body>
+    <div class="background-image"></div> <!-- Imagem atrás da box -->
+    
     <div class="container">
         <div class="header">
-            <a href="#" class="tab">Login</a>
+            <a href="loginpage/login.html" class="tab">Login</a>
             <a href="#" class="tab active">Cadastro</a>
             <span class="settings-icon"><a href="#"><img src="imagens/ferramenta.png" alt="Configurações"></a></span>
         </div>
         
         <div class="form-container">
-            <div class="profile-pic">
-                <img src="imagens/homem_negro.png" alt="Upload de Imagem">
-            </div>
-            
-            <form action="register.jsp" method="post">
+            <form onsubmit="return irParaLoja(event)">
                 <div class="input-group">
                     <span class="icon"><img src="imagens/user.png" alt="Usuário"></span>
-                    <input type="text" name="nome" placeholder="Nome" required>
+                    <input type="text" id="nome" placeholder="Nome" required>
                 </div>
                 <div class="input-group">
                     <span class="icon"><img src="imagens/mensagem.png" alt="Email"></span>
-                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="email" id="email" placeholder="Email" required>
                 </div>
                 <div class="input-group">
                     <span class="icon"><img src="imagens/icon.png" alt="Senha"></span>
-                    <input type="password" name="senha" placeholder="Senha" required>
+                    <input type="password" id="senha" placeholder="Senha" required>
                 </div>
                 <div class="input-group">
                     <span class="icon"><img src="imagens/unlock.png" alt="Confirmar Senha"></span>
-                    <input type="password" name="confirmarSenha" placeholder="Senha Novamente" required>
+                    <input type="password" id="confirmarSenha" placeholder="Senha Novamente" required>
                 </div>
                 
                 <button type="submit" class="submit-btn">Cadastrar</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function irParaLoja(event) {
+            event.preventDefault(); // Evita o envio do formulário
+            window.location.href = "lojapage/loja.html"; // Redireciona para a loja
+        }
+    </script>
 </body>
 </html>

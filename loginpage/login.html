@@ -2,9 +2,10 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <title>Página Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -14,24 +15,34 @@
             font-size: 12px;
         }
         body {
-            background: linear-gradient(to bottom, #897054 90%, #231D15 100%); /* Gradiente linear, cobrindo 90% com #897054 e 10% com #231D15 */
+            background: linear-gradient(to bottom, #897054 90%, #231D15 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
         }
+        /* Imagem de fundo */
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('imagens/eletronicos.png'); /* Imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2; /* Torna a imagem mais discreta */
+            z-index: 0;
+        }
+        /* Container principal */
         .container {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             backdrop-filter: blur(10px);
             width: 350px;
             text-align: center;
             position: relative;
-            background-image: url('imagens/eletronicos.png'); /* Imagem de fundo */
-            background-size: cover; /* A imagem vai cobrir toda a área da container */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Não repete a imagem */
+            z-index: 1;
         }
         .tabs {
             display: flex;
@@ -48,16 +59,12 @@
             flex: 1;
             text-align: center;
         }
-        .icon {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
+        /* Ícone substituído pela logo */
+        .icon img {
+            width: 80px;
+            height: 80px;
             margin: 20px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
+            display: block;
         }
         .input-group {
             margin: 10px 0;
@@ -74,24 +81,66 @@
             color: #52B0E5;
             cursor: pointer;
         }
+        /* Botão azul de login */
+        .login-button {
+            background-color: #007bff; /* Azul */
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .login-button:hover {
+            background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+        }
     </style>
 </head>
 <body>
+    <div class="background-image"></div> <!-- Imagem atrás da box -->
+    
     <div class="container">
         <div class="tabs">
             <span>Cadastro</span>
             <span>Login</span>
         </div>
-        <div class="icon">🖼️</div>
-        <div class="input-group">
-            <label>Email</label>
-            <input type="email" placeholder="Digite seu email">
+        <!-- Substitui o ícone 🖼️ pela logo -->
+        <div class="icon">
+            <img src="imagens/logo.jpeg" alt="Logo">
         </div>
-        <div class="input-group">
-            <label>Senha</label>
-            <input type="password" placeholder="Digite sua senha">
-        </div>
+        <form onsubmit="return loginUsuario(event)">
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Digite seu email" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha" required>
+            </div>
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
         <div class="forgot-password">Esqueceu sua senha?</div>
     </div>
+
+    <script>
+        function loginUsuario(event) {
+            event.preventDefault(); // Evita o envio do formulário
+
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
+
+            if (!email || !senha) {
+                alert("Por favor, preencha todos os campos!");
+                return false;
+            }
+
+            alert("Login realizado com sucesso!");
+            window.location.href = "lojapage/loja.html"; // Redireciona para a loja
+        }
+    </script>
 </body>
 </html>
