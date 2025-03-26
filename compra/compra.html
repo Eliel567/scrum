@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Online</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Arquivo CSS para estilização -->
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
             background-color: #897054;
@@ -15,17 +15,18 @@
             flex-direction: column;
             align-items: center;
             background: #ccc;
-            padding: 20px;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
+            max-width: 1000px;
             margin: 50px auto;
             position: relative;
+            height: 90vh; /* Aumenta a altura da box para ocupar quase o final da tela */
         }
         .header {
             width: 100%;
             background: white;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px 10px 0 0;
             display: flex;
             flex-direction: column;
@@ -63,21 +64,34 @@
             display: flex;
             flex-direction: row;
             width: 100%;
+            justify-content: space-between; /* Distribui os itens (imagem das telas e TV preta) nas extremidades */
+            align-items: center;
+            margin-top: 40px;
+            position: relative;
         }
-        .image-gallery {
+        .image-container {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            align-items: center;
+            width: 45%; /* Ajuste da largura da imagem das telas */
         }
-        .image-gallery img {
-            width: 60px;
-            cursor: pointer;
+        .image-container img {
+            width: 120px;
         }
-        .main-image img {
-            width: 300px;
+        .tv-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 45%; /* Ajuste da largura da TV preta */
+            position: relative;
+        }
+        .tv-container img {
+            width: 350px; /* Aumentando a largura da TV preta */
         }
         .product-info {
-            padding-left: 20px;
+            padding-top: 20px;
+            text-align: center;
+            width: 100%; /* Garantir que o texto ocupe a largura completa */
         }
         .buy-button {
             background-color: blue;
@@ -86,6 +100,9 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+        }
+        .buy-button:hover {
+            background-color: darkblue;
         }
         .discount {
             color: green;
@@ -112,29 +129,27 @@
         <section class="product-container">
             <div class="header">
                 <div class="icons-bar">
-                    <img src="cart.png" alt="Carrinho">
-                    <img src="box.png" alt="Pedidos">
-                    <img src="mail.png" alt="Mensagens">
-                    <img src="settings.png" alt="Configurações">
+                    <img src="imagens/Shopping_cart.png" alt="Carrinho">
+                    <img src="imagens/Package.png" alt="Pedidos">
+                    <img src="imagens/mensagem.png" alt="Mensagens">
+                    <img src="imagens/ferramenta.png" alt="Configurações">
                 </div>
                 <div class="search-bar">
                     <input type="text" placeholder="Buscar produtos...">
                 </div>
             </div>
             <div class="content">
-                <div class="image-gallery">
-                    <img src="img1.jpg" alt="Imagem pequena 1">
-                    <img src="img2.jpg" alt="Imagem pequena 2">
-                    <img src="img3.jpg" alt="Imagem pequena 3">
+                <div class="image-container">
+                    <img src="imagens/telas_da_tv.png" alt="Imagem pequena da TV">
                 </div>
-                <div class="main-image">
-                    <img src="tv.jpg" alt="Smart TV 32">
-                </div>
-                <div class="product-info">
-                    <h2>Smart TV 32'' Philco Ptv32k34rkgb Roku TV Led Wi-Fi HDMI USB Dolby Audio</h2>
-                    <p><strong>R$926,10</strong> <span class="discount">47% OFF no Pix</span></p>
-                    <p>ou R$1.029 em 10x <span class="discount">R$102,90 sem juros</span></p>
-                    <button class="buy-button" onclick="openPaymentModal()">Pague Agora</button>
+                <div class="tv-container">
+                    <img src="imagens/tv_preta_1.png" alt="Smart TV 32">
+                    <div class="product-info">
+                        <h2>Smart TV 32'' Philco Ptv32k34rkgb Roku TV Led Wi-Fi HDMI USB Dolby Audio</h2>
+                        <p><strong>R$926,10</strong> <span class="discount">47% OFF no Pix</span></p>
+                        <p>ou R$1.029 em 10x <span class="discount">R$102,90 sem juros</span></p>
+                        <button class="buy-button" onclick="openPaymentModal()">Pague Agora</button>
+                    </div>
                 </div>
             </div>
         </section>
