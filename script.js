@@ -53,7 +53,7 @@ function adicionarAoCarrinho(produto, preco, quantidade) {
 // Função para ir para a página de compra
 function irParaCompra() {
     if (carrinho.length > 0) {
-        irPara("compra.page");
+        irPara("compra/compra.html");
     } else {
         alert("Seu carrinho está vazio!");
     }
