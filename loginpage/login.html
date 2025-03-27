@@ -22,18 +22,18 @@
             height: 100vh;
             position: relative;
         }
-        /* Imagem de fundo */
+        
         .background-image {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-image: url('imagens/eletronicos.png'); /* Imagem de fundo */
+            background-image: url('imagens/eletronicos.png'); 
             background-size: cover;
             background-position: center;
-            opacity: 0.2; /* Torna a imagem mais discreta */
+            opacity: 0.2;
             z-index: 0;
         }
-        /* Container principal */
+       
         .container {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -59,7 +59,7 @@
             flex: 1;
             text-align: center;
         }
-        /* Ícone substituído pela logo */
+      
         .icon img {
             width: 80px;
             height: 80px;
@@ -81,9 +81,9 @@
             color: #52B0E5;
             cursor: pointer;
         }
-        /* Botão azul de login */
+       
         .login-button {
-            background-color: #007bff; /* Azul */
+            background-color: #007bff;
             color: white;
             font-size: 14px;
             font-weight: bold;
@@ -96,19 +96,19 @@
             transition: 0.3s;
         }
         .login-button:hover {
-            background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <div class="background-image"></div> <!-- Imagem atrás da box -->
+    <div class="background-image"></div> 
     
     <div class="container">
         <div class="tabs">
             <span>Cadastro</span>
             <span>Login</span>
         </div>
-        <!-- Substitui o ícone 🖼️ pela logo -->
+     
         <div class="icon">
             <img src="imagens/logo.jpeg" alt="Logo">
         </div>
@@ -128,7 +128,7 @@
 
     <script>
         function loginUsuario(event) {
-            event.preventDefault(); // Evita o envio do formulário
+            event.preventDefault(); 
 
             let email = document.getElementById("email").value;
             let senha = document.getElementById("senha").value;
@@ -139,7 +139,7 @@
             }
 
             alert("Login realizado com sucesso!");
-            window.location.href = "lojapage/loja.html"; // Redireciona para a loja
+            window.location.href = "lojapage/loja.html"; 
         }
     </script>
 </body>

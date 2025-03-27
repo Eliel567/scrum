@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* Configuração geral do corpo */
+
 body {
     background-color: #897054;
     display: flex;
@@ -18,7 +18,6 @@ body {
     color: black;
 }
 
-/* Cabeçalho e navegação */
 header {
     width: 100%;
     position: absolute;
@@ -68,7 +67,6 @@ nav a {
     cursor: pointer;
 }
 
-/* Barra de pesquisa */
 .search-bar {
     position: absolute;
     top: 90px;
@@ -99,7 +97,7 @@ nav a {
     margin-right: 10px;
 }
 
-/* Layout principal */
+
 main {
     display: flex;
     gap: 20px;
@@ -111,7 +109,7 @@ main {
     color: black;
 }
 
-/* Estilização das seções */
+
 .box {
     background: white;
     padding: 20px;
@@ -141,7 +139,7 @@ main {
     z-index: 1;
 }
 
-/* Botões */
+
 button {
     background-color: blue;
     color: white;
@@ -157,7 +155,7 @@ button:hover {
     background-color: darkblue;
 }
 
-/* Modal */
+
 .modal {
     display: none;
     position: fixed;

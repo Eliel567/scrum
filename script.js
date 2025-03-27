@@ -1,9 +1,9 @@
-// Função para trocar de página
+
 function irPara(pagina) {
     window.location.href = pagina;
 }
 
-// Simulação de login (pode ser integrado a um backend real)
+
 function login() {
     let email = document.getElementById("email").value;
     let senha = document.getElementById("senha").value;
@@ -16,7 +16,7 @@ function login() {
     }
 }
 
-// Simulação de cadastro (pode ser integrado a um backend real)
+
 function cadastrar() {
     let nome = document.getElementById("nome").value;
     let email = document.getElementById("email").value;
@@ -35,10 +35,10 @@ function cadastrar() {
     }
 }
 
-// Array de carrinho salvo no Local Storage
+
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-// Função para adicionar produto ao carrinho
+
 function adicionarAoCarrinho(produto, preco, quantidade) {
     let item = {
         produto: produto,
@@ -46,11 +46,11 @@ function adicionarAoCarrinho(produto, preco, quantidade) {
         quantidade: parseInt(quantidade)
     };
     carrinho.push(item);
-    localStorage.setItem("carrinho", JSON.stringify(carrinho)); // Salvar no localStorage
+    localStorage.setItem("carrinho", JSON.stringify(carrinho)); 
     alert(`${quantidade}x ${produto} adicionado ao carrinho!`);
 }
 
-// Função para ir para a página de compra
+
 function irParaCompra() {
     if (carrinho.length > 0) {
         irPara("compra/compra.html");
@@ -59,7 +59,7 @@ function irParaCompra() {
     }
 }
 
-// Carregar itens do carrinho na página de compra
+
 function carregarCarrinho() {
     let cartItems = document.getElementById("cart-items");
 
@@ -72,7 +72,7 @@ function carregarCarrinho() {
     }
 }
 
-// Finalizar compra
+
 function confirmarCompra() {
     alert("Compra realizada com sucesso!");
     localStorage.removeItem("carrinho");
